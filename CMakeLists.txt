@@ -9,6 +9,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install/")
 set(CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MDd /Zi /Ob0 /Od")
 
+if (MSVC_VERSION GREATER_EQUAL "1900")
+	include(CheckCXXCompilerFlag)
+	CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+	if (_cpp_latest_flag_supported)
+		add_compile_options("/std:c++latest")
+	endif()
+endif()
+
 ########
 # Пути #
 ########

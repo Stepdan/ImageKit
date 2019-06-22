@@ -4,7 +4,7 @@
 
 #include "DataImageImpl.h"
 
-namespace Core { namespace Interfaces {
+namespace Core::Interfaces {
 
 class IDataImage;
 
@@ -16,4 +16,4 @@ public:
 	virtual std::shared_ptr<IDataImage> CreateDataImage(DataImageImpl) const = 0;
 };
 
-}}
+}

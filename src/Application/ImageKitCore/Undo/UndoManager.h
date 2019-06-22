@@ -10,19 +10,19 @@ namespace ImageKitCore {
 class UndoManager
 {
 public:
-	UndoManager(const std::weak_ptr<IDataImage> & image, const std::string & tempPath);
+    UndoManager(const std::weak_ptr<IDataImage> & image, const std::string & tempPath);
 
-	void Add(const std::weak_ptr<IDataImage> & image);
-	UndoItem Undo();
-	UndoItem Redo();
-	UndoItem Reset();
+    void Push(const std::weak_ptr<IDataImage> & image);
+    const UndoItem & Undo();
+    const UndoItem & Redo();
+    const UndoItem & Reset();
 
 private:
-	std::string m_tempPath;
-	int m_curIndex;
+    std::string m_tempPath;
+    int m_curIndex;
 
-	std::deque<UndoItem> m_undoStack;
-	std::stack<UndoItem> m_redoStack;
+    std::deque<UndoItem> m_undoStack;
+    std::stack<UndoItem> m_redoStack;
 };
 
 }

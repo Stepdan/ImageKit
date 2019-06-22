@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "UndoManager.h"
 
 namespace ImageKitCore {
@@ -5,51 +7,53 @@ namespace ImageKitCore {
 UndoManager::UndoManager(const std::weak_ptr<IDataImage> & image, const std::string & tempPath)
     : m_tempPath(tempPath)
 {
-	Add(image);
+    Push(image);
 };
 
 //.............................................................................
 
-void UndoManager::Add(const std::weak_ptr<IDataImage> & image)
+void UndoManager::Push(const std::weak_ptr<IDataImage> & image)
 {
-	m_undoStack.emplace_back(image, m_tempPath, m_curIndex++);
+    m_undoStack.emplace_back(image, m_tempPath, m_curIndex++);
 
-	if(!m_redoStack.empty())
-		std::stack<UndoItem>().swap(m_redoStack);
+    if(!m_redoStack.empty())
+        std::stack<UndoItem>().swap(m_redoStack);
 }
 
 //.............................................................................
 
-UndoItem UndoManager::Undo()
+const UndoItem & UndoManager::Undo()
 {
-	if(m_undoStack.empty())
-		return UndoItem();
+    if(m_undoStack.size() == 1)
+        return m_undoStack.back();
 
-	m_redoStack.push(m_undoStack.back());
-	m_undoStack.pop_back();
+    m_redoStack.push(m_undoStack.back());
+    m_undoStack.pop_back();
+
+    return m_undoStack.back();
 }
 
 //.............................................................................
 
-UndoItem UndoManager::Redo()
+const UndoItem & UndoManager::Redo()
 {
-	if(m_redoStack.empty())
-		return m_undoStack.back();
+    if(m_redoStack.empty())
+        return m_undoStack.back();
 
-	m_undoStack.push_back(m_redoStack.top());
-	m_redoStack.pop();
+    m_undoStack.push_back(m_redoStack.top());
+    m_redoStack.pop();
+
+    return m_undoStack.back();
 }
 
 //.............................................................................
 
-UndoItem UndoManager::Reset()
+const UndoItem & UndoManager::Reset()
 {
-	const auto & item = m_undoStack.front();
-	m_undoStack.clear();
-	std::stack<UndoItem>().swap(m_redoStack);
-	m_undoStack.push_back(item);
+    std::stack<UndoItem>().swap(m_redoStack);
+    std::deque<UndoItem>({m_undoStack.front()}).swap(m_undoStack);
 
-	return item;
+    return m_undoStack.back();
 }
 
 }

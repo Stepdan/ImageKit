@@ -10,22 +10,22 @@ namespace cv
 class Mat
 {
 public:
-	Mat() = default;
-	~Mat() = default;
+    Mat() = default;
+    ~Mat() = default;
 };
 }
 
 using namespace Core::Interfaces;
 
-namespace Core { namespace Util {
+namespace Core::Util {
 
 enum MatColorOrder
 {
-	MCO_BGR,
-	MCO_RGB,
-	MCO_BGRA = MCO_BGR,
-	MCO_RGBA = MCO_RGB,
-	MCO_ARGB
+    MCO_BGR,
+    MCO_RGB,
+    MCO_BGRA = MCO_BGR,
+    MCO_RGBA = MCO_RGB,
+    MCO_ARGB
 };
 
 cv::Mat  DataImageToCvMat (const std::shared_ptr<IDataImage> & src);
@@ -78,4 +78,4 @@ QImage CvMatToQImageShallow(const cv::Mat &mat, QImage::Format formatHint = QIma
 QPixmap CvMatToQPixmap(const cv::Mat& mat);
 cv::Mat QPixmapToCvMat(const QPixmap& pixmap, int requiredMatType = 0 /*CV_8UC(0)*/, MatColorOrder requiredOrder=MCO_BGR);
 
-}}
+}

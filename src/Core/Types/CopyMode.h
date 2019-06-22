@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Core { namespace Types {
+namespace Core::Types {
 
 enum class CopyMode
 {
@@ -8,4 +8,4 @@ enum class CopyMode
 	Shallow,
 };
 
-}}
+}

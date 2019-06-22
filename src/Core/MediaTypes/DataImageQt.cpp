@@ -1,17 +1,17 @@
 #include "DataImageQt.h"
 
-namespace Core { namespace MediaTypes {
+namespace Core::MediaTypes {
 
 std::shared_ptr<IDataImage> DataImageQt::Create()
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
 
 std::shared_ptr<IDataImage> DataImageQt::Create(const Types::ImageInfo & info)
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
@@ -28,21 +28,21 @@ DataImageQt::DataImageQt(const DataImageQt & rhs)
 
 const Types::ImageInfo & DataImageQt::GetImageInfo() const noexcept
 {
-	return Types::ImageInfo();
+    return Types::ImageInfo();
 }
 
 //.............................................................................
 
 uint8_t* DataImageQt::GetData()
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
 
 std::shared_ptr<IDataImage> DataImageQt::Copy(Types::CopyMode) const
 {
-	return nullptr;
+    return nullptr;
 }
 
-}}
+}

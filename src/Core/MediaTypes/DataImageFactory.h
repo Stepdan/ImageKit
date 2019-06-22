@@ -7,12 +7,12 @@
 
 using namespace Core::Interfaces;
 
-namespace Core { namespace MediaTypes {
+namespace Core::MediaTypes {
 
 class DataImageFactory
 {
 public:
-	static std::shared_ptr<IDataImage> CreateDataImage(const Types::ImageInfo & info, DataImageImpl impl = DataImageImpl::OpenCV);
+    static std::shared_ptr<IDataImage> CreateDataImage(const Types::ImageInfo & info, DataImageImpl impl = DataImageImpl::OpenCV);
 };
 
-}}
+}

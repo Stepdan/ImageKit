@@ -1,17 +1,17 @@
 #include "DataImageCV.h"
 
-namespace Core { namespace MediaTypes {
+namespace Core::MediaTypes {
 
 std::shared_ptr<IDataImage> DataImageCV::Create()
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
 
 std::shared_ptr<IDataImage> DataImageCV::Create(const Types::ImageInfo & info)
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
@@ -28,21 +28,21 @@ DataImageCV::DataImageCV(const DataImageCV & rhs)
 
 const Types::ImageInfo & DataImageCV::GetImageInfo() const noexcept
 {
-	return Types::ImageInfo();
+    return Types::ImageInfo();
 }
 
 //.............................................................................
 
 uint8_t* DataImageCV::GetData()
 {
-	return nullptr;
+    return nullptr;
 }
 
 //.............................................................................
 
 std::shared_ptr<IDataImage> DataImageCV::Copy(Types::CopyMode) const
 {
-	return nullptr;
+    return nullptr;
 }
 
-}}
+}

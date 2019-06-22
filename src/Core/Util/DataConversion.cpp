@@ -4,7 +4,7 @@ namespace {
 
 cv::Mat CvMat_ARGB_to_BGRA(const cv::Mat &mat)
 {
-	return cv::Mat();
+    return cv::Mat();
 //	assert(mat.channels()==4);
 
 //	cv::Mat newMat(mat.rows, mat.cols, mat.type());
@@ -17,7 +17,7 @@ cv::Mat CvMat_ARGB_to_BGRA(const cv::Mat &mat)
 
 cv::Mat AdjustChannelsOrder(const cv::Mat &srcMat, Core::Util::MatColorOrder srcOrder, Core::Util::MatColorOrder targetOrder)
 {
-	return cv::Mat();
+    return cv::Mat();
 //	using namespace Core::Util;
 //	Q_ASSERT(srcMat.channels()==4);
 
@@ -51,39 +51,39 @@ cv::Mat AdjustChannelsOrder(const cv::Mat &srcMat, Core::Util::MatColorOrder src
 
 QImage::Format FindClosestFormat(QImage::Format formatHint)
 {
-	QImage::Format format;
-	switch (formatHint) {
-	case QImage::Format_Indexed8:
-	case QImage::Format_RGB32:
-	case QImage::Format_ARGB32:
-	case QImage::Format_ARGB32_Premultiplied:
-	case QImage::Format_Alpha8:
-	case QImage::Format_Grayscale8:
-		format = formatHint;
-		break;
-	case QImage::Format_Mono:
-	case QImage::Format_MonoLSB:
-		format = QImage::Format_Indexed8;
-		break;
-	case QImage::Format_RGB16:
-		format = QImage::Format_RGB32;
-		break;
-	case QImage::Format_RGB444:
-	case QImage::Format_RGB555:
-	case QImage::Format_RGB666:
-		format = QImage::Format_RGB888;
-		break;
-	case QImage::Format_ARGB4444_Premultiplied:
-	case QImage::Format_ARGB6666_Premultiplied:
-	case QImage::Format_ARGB8555_Premultiplied:
-	case QImage::Format_ARGB8565_Premultiplied:
-		format = QImage::Format_ARGB32_Premultiplied;
-		break;
-	default:
-		format = QImage::Format_ARGB32;
-		break;
-	}
-	return format;
+    QImage::Format format;
+    switch (formatHint) {
+    case QImage::Format_Indexed8:
+    case QImage::Format_RGB32:
+    case QImage::Format_ARGB32:
+    case QImage::Format_ARGB32_Premultiplied:
+    case QImage::Format_Alpha8:
+    case QImage::Format_Grayscale8:
+        format = formatHint;
+        break;
+    case QImage::Format_Mono:
+    case QImage::Format_MonoLSB:
+        format = QImage::Format_Indexed8;
+        break;
+    case QImage::Format_RGB16:
+        format = QImage::Format_RGB32;
+        break;
+    case QImage::Format_RGB444:
+    case QImage::Format_RGB555:
+    case QImage::Format_RGB666:
+        format = QImage::Format_RGB888;
+        break;
+    case QImage::Format_ARGB4444_Premultiplied:
+    case QImage::Format_ARGB6666_Premultiplied:
+    case QImage::Format_ARGB8555_Premultiplied:
+    case QImage::Format_ARGB8565_Premultiplied:
+        format = QImage::Format_ARGB32_Premultiplied;
+        break;
+    default:
+        format = QImage::Format_ARGB32;
+        break;
+    }
+    return format;
 }
 
 //.............................................................................
@@ -91,33 +91,33 @@ QImage::Format FindClosestFormat(QImage::Format formatHint)
 Core::Util::MatColorOrder GetColorOrderOfRGB32Format()
 {
 #if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
-	    return Core::Util::MatColorOrder::MCO_BGRA;
+        return Core::Util::MatColorOrder::MCO_BGRA;
 #else
-	    return Core::Util::MatColorOrder::MCO_ARGB;
+        return Core::Util::MatColorOrder::MCO_ARGB;
 #endif
 }
 
 }
 
-namespace Core { namespace Util {
+namespace Core::Util {
 
 cv::Mat DataImageToCvMat (const std::shared_ptr<IDataImage> & src)
 {
-	return cv::Mat();
+    return cv::Mat();
 }
 
 //.............................................................................
 
 QImage DataImageToQImage(const std::shared_ptr<IDataImage> & src)
 {
-	return QImage();
+    return QImage();
 }
 
 //.............................................................................
 
 cv::Mat QImageToCvMat(const QImage &img, int requiredMatType, MatColorOrder requriedOrder)
 {
-	return cv::Mat();
+    return cv::Mat();
 //	int targetDepth = CV_MAT_DEPTH(requiredMatType);
 //	int targetChannels = CV_MAT_CN(requiredMatType);
 //	Q_ASSERT(targetChannels==CV_CN_MAX || targetChannels==1 || targetChannels==3 || targetChannels==4);
@@ -219,7 +219,7 @@ cv::Mat QImageToCvMat(const QImage &img, int requiredMatType, MatColorOrder requ
 
 QImage CvMatToQImage(const cv::Mat &mat, MatColorOrder order, QImage::Format formatHint)
 {
-	return QImage();
+    return QImage();
 //	Q_ASSERT(mat.channels()==1 || mat.channels()==3 || mat.channels()==4);
 //		Q_ASSERT(mat.depth()==CV_8U || mat.depth()==CV_16U || mat.depth()==CV_32F);
 
@@ -308,7 +308,7 @@ QImage CvMatToQImage(const cv::Mat &mat, MatColorOrder order, QImage::Format for
 
 cv::Mat QImageToCvMatShallow(const QImage &img, MatColorOrder *order)
 {
-	return cv::Mat();
+    return cv::Mat();
 //	if (img.isNull())
 //			return cv::Mat();
 
@@ -350,7 +350,7 @@ cv::Mat QImageToCvMatShallow(const QImage &img, MatColorOrder *order)
 
 QImage CvMatToQImageShallow(const cv::Mat &mat, QImage::Format formatHint)
 {
-	return QImage();
+    return QImage();
 //	Q_ASSERT(mat.type() == CV_8UC1 || mat.type() == CV_8UC3 || mat.type() == CV_8UC4);
 
 //		if (mat.empty())
@@ -400,14 +400,14 @@ QImage CvMatToQImageShallow(const cv::Mat &mat, QImage::Format formatHint)
 
 QPixmap CvMatToQPixmap(const cv::Mat& mat)
 {
-	return QPixmap::fromImage(CvMatToQImage(mat));
+    return QPixmap::fromImage(CvMatToQImage(mat));
 }
 
 //.............................................................................
 
 cv::Mat QPixmapToCvMat(const QPixmap& pixmap, int requiredMatType, MatColorOrder requiredOrder)
 {
-	return QImageToCvMat(pixmap.toImage(), requiredMatType, requiredOrder);
+    return QImageToCvMat(pixmap.toImage(), requiredMatType, requiredOrder);
 }
 
-}}
+}

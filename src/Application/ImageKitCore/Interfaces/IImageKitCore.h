@@ -4,7 +4,7 @@
 #include "src/Application/ImageKitCore/Interfaces/IImageKitIO.h"
 #include "src/Application/ImageKitCore/Interfaces/IImageKitUndo.h"
 
-namespace ImageKitCore { namespace Interfaces {
+namespace ImageKitCore::Interfaces {
 
 class IImageKitCore
     : virtual public IImageKitEffectApplier
@@ -12,15 +12,15 @@ class IImageKitCore
     , virtual public IImageKitUndo
 {
 public:
-	virtual ~IImageKitCore() = default;
+    virtual ~IImageKitCore() = default;
 
-	static std::shared_ptr<IImageKitCore> Create();
+    static std::shared_ptr<IImageKitCore> Create();
 
-	virtual IImageKitEffectApplier& GetEffectApplierEngine() = 0;
-	virtual IImageKitIO& GetIOEngine() = 0;
-	virtual IImageKitUndo& GetUndoEngine() = 0;
+    virtual IImageKitEffectApplier& GetEffectApplierEngine() = 0;
+    virtual IImageKitIO& GetIOEngine() = 0;
+    virtual IImageKitUndo& GetUndoEngine() = 0;
 
-	const std::shared_ptr<Core::Interfaces::IDataImage> & GetDataImage() const;
+    const std::shared_ptr<Core::Interfaces::IDataImage> & GetDataImage() const;
 };
 
-}}
+}
