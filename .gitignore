@@ -1,0 +1,6 @@
+build*/
+ThirdParty*/
+models*/
+CMakeLists.txt.user/
+temp*/
+BuildQt*/

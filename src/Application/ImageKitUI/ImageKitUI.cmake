@@ -1,0 +1,19 @@
+AddTarget(NAME ImageKitUI
+    SOURCE_DIR
+        ${SOURCE_ROOT}/Application/ImageKitUI/
+    SRC
+        *.cpp
+        *.h
+        *.qrc
+    UI_FILES
+        ${SOURCE_DIR}/*.ui
+        ${SOURCE_DIR}/Scene/*.ui
+    SUBDIRS
+        Scene/
+    DEPS
+        ImageCore
+        ImageKitEffects
+    QT_USE
+        Core
+        Widgets
+)
