@@ -54,7 +54,7 @@ include (${SOURCE_ROOT}/Proc/Effects/EffectsCV/EffectsCV.cmake)
 include (${SOURCE_ROOT}/Util/Util.cmake)
 
 # Application
-include (${SOURCE_ROOT}/Application/ImageCore/ImageCore.cmake)
+include (${SOURCE_ROOT}/Application/ImageKitCore/ImageKitCore.cmake)
 include (${SOURCE_ROOT}/Application/ImageKitPlugins/Interfaces/ImageKitPluginsInt.cmake)
 include (${SOURCE_ROOT}/Application/ImageKitPlugins/ImageKitFactory/ImageKitFactory.cmake)
 include (${SOURCE_ROOT}/Application/ImageKitPlugins/ImageKitEffects/ImageKitEffects.cmake)

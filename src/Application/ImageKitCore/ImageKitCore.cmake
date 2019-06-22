@@ -1,6 +1,6 @@
-AddTarget(NAME ImageCore
+AddTarget(NAME ImageKitCore
     SOURCE_DIR
-        ${SOURCE_ROOT}/Application/ImageCore/
+        ${SOURCE_ROOT}/Application/ImageKitCore/
     SRC
         *.cpp
         *.h
