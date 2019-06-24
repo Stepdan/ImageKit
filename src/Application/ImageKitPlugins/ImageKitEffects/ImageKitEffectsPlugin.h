@@ -11,15 +11,13 @@ namespace ImageKit {
 class ImageKitEffectsPlugin : public Interfaces::IPlugin
 {
 public:
-    ImageKitEffectsPlugin(QObject* parent = nullptr);
+	ImageKitEffectsPlugin(QWidget* parent = nullptr);
+	~ImageKitEffectsPlugin();
 
 public:
-    void Notify(const ImageKitAction &) const noexcept override;
-
-public:
-    const std::string & GetPluginName() const override;
-    QWidget* GetPluginWidget() const  override;
-    QToolButton* GetPluginButton() const override;
+	PluginType GetPluginType() const noexcept override;
+	QWidget* GetPluginWidget() const override;
+	QToolButton* GetPluginButton() const override;
 
 private:
     class Impl;

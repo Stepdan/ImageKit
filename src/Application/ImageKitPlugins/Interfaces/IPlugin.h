@@ -2,21 +2,21 @@
 
 #include <string>
 
-#include "IImageKitActionRequester.h"
+#include "PluginType.h"
 
 class QToolButton;
 class QWidget;
 
 namespace ImageKit { namespace Interfaces {
 
-class IPlugin : virtual public IImageKitActionRequester
+class IPlugin
 {
 public:
     virtual ~IPlugin() = default;
 
-    virtual const std::string & GetPluginName() const  = 0;
-    virtual QWidget* GetPluginWidget() const = 0;
-    virtual QToolButton* GetPluginButton() const = 0;
+	virtual PluginType GetPluginType() const noexcept = 0;
+	virtual QWidget* GetPluginWidget() const = 0;
+	virtual QToolButton* GetPluginButton() const = 0;
 };
 
 }}

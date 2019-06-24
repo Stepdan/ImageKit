@@ -9,7 +9,7 @@ class IImageKitActionHandler
 public:
     virtual ~IImageKitActionHandler() = default;
 
-    virtual void HandleImageKitAction(const ImageKitAction &) = 0;
+	virtual void HandleImageKitAction(ImageKitAction&) = 0;
 };
 
 }

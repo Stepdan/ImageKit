@@ -7,9 +7,12 @@ AddTarget(NAME ImageKitUI
         *.qrc
     UI_FILES
         ${SOURCE_DIR}/*.ui
-        ${SOURCE_DIR}/Scene/*.ui
+        ${SOURCE_DIR}/UI/*.ui
+        ${SOURCE_DIR}/UI/Scene/*.ui
     SUBDIRS
-        Scene/
+    	Engine/
+    	UI/
+        UI/Scene/
     DEPS
         ImageCore
         ImageKitEffects
