@@ -1,3 +1,6 @@
+#include "src/Core/MediaTypes/DataImageCV.h"
+#include "src/Core/MediaTypes/DataImageQt.h"
+
 #include "DataConversion.h"
 
 namespace {
@@ -110,7 +113,7 @@ cv::Mat DataImageToCvMat (const std::shared_ptr<IDataImage> & src)
 
 QImage DataImageToQImage(const std::shared_ptr<IDataImage> & src)
 {
-    return QImage();
+	if(dynamic_cast<>)
 }
 
 //.............................................................................

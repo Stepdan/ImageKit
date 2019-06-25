@@ -17,12 +17,17 @@ public:
 private:
 	DataImageQt();
 	DataImageQt(const DataImageQt & rhs);
-	~DataImageQt() = default;
+	~DataImageQt();
 
 public:
 	const Types::ImageInfo & GetImageInfo() const noexcept override;
 	uint8_t* GetData() override;
+	const uint8_t* GetData() const override;
 	std::shared_ptr<IDataImage> Copy(Types::CopyMode) const override;
+
+private:
+	class Impl;
+	std::unique_ptr<Impl> m_impl;
 };
 
 }}
