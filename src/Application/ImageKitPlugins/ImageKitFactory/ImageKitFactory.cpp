@@ -6,12 +6,12 @@
 
 namespace ImageKit {
 
-std::unique_ptr<Interfaces::IPlugin> CreatePlugin(PluginType type, QWidget* parent)
+std::shared_ptr<Interfaces::IPlugin> CreatePlugin(PluginType type, QWidget* parent)
 {
 	switch(type)
 	{
 	    case PluginType::Effects:
-		    return std::make_unique<ImageKitEffectsPlugin>(parent);
+		    return std::make_shared<ImageKitEffectsPlugin>(parent);
 
 	    default:
 		    assert(!"ImageKitFactory:: Incorrect plugin type!");

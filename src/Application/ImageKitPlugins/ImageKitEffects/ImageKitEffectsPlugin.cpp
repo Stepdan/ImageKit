@@ -3,8 +3,9 @@
 #include <QWidget>
 
 #include "src/Application/ImageKitPlugins/Interfaces/ImageKitAction.h"
+#include "src/Application/ImageKitPlugins/ImageKitUtil/UI/PluginButton.h"
 
-#include "UI/PluginWidget.h"
+#include "UI/ImageKitEffectsWidget.h"
 
 #include "ImageKitEffectsPlugin.h"
 
@@ -16,16 +17,12 @@ class ImageKitEffectsPlugin::Impl : public QObject
 
 public:
 	Impl(QWidget* parent = nullptr)
-	    : m_widget(new PluginWidget(parent))
-	{
+	    : m_widget(new ImageKitEffectsWidget(parent))
+	    , m_button(new PluginButton(PluginType::Effects, parent))
+	{}
 
-	}
-
-	QToolButton* GetButton() const noexcept { return m_button; }
-	QWidget* GetWidget() const noexcept { return m_widget; }
-
-signals:
-	void notify(ImageKitAction&);
+	QToolButton* GetButton() const { return m_button; }
+	QWidget* GetWidget() const { return m_widget; }
 
 private:
 	QPointer<QWidget> m_widget;
@@ -37,7 +34,6 @@ private:
 ImageKitEffectsPlugin::ImageKitEffectsPlugin(QWidget* parent)
     : m_impl(new Impl(parent))
 {
-
 }
 
 //.............................................................................

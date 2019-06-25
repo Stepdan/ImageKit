@@ -4,6 +4,10 @@ AddTarget(NAME ImageKitUtil
     SRC
         *.cpp
         *.h
+    UI_FILES
+        ${SOURCE_DIR}/UI/*.ui
+    SUBDIRS
+    	UI/
     DEPS
     	ImageKitPluginsInt
     QT_USE

@@ -8,6 +8,10 @@ namespace Ui {
 class WorkspaceWidget;
 }
 
+namespace ImageKit::Interfaces {
+class IPlugin;
+}
+
 namespace ImageKit {
 
 class WorkspaceWidget : public QWidget
@@ -17,6 +21,9 @@ class WorkspaceWidget : public QWidget
 public:
 	explicit WorkspaceWidget(QWidget *parent = nullptr);
 	~WorkspaceWidget();
+
+private slots:
+	void OnSetPluginWidget(QWidget*);
 
 private:
 	std::unique_ptr<Ui::WorkspaceWidget> m_ui;

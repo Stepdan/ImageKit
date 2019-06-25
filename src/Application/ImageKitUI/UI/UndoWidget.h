@@ -4,6 +4,8 @@
 
 #include <QWidget>
 
+#include "src/Application/ImageKitPlugins/Interfaces/ActionType.h"
+
 namespace Ui {
 class UndoWidget;
 }
@@ -17,6 +19,9 @@ class UndoWidget : public QWidget
 public:
 	explicit UndoWidget(QWidget *parent = nullptr);
 	~UndoWidget();
+
+signals:
+	void notify(ActionType);
 
 private:
 	std::unique_ptr<Ui::UndoWidget> m_ui;

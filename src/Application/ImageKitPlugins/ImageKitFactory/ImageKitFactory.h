@@ -6,6 +6,6 @@
 
 namespace ImageKit {
 
-std::unique_ptr<Interfaces::IPlugin> CreatePlugin(PluginType type, QWidget* parent = nullptr);
+std::shared_ptr<Interfaces::IPlugin> CreatePlugin(PluginType type, QWidget* parent = nullptr);
 
 }

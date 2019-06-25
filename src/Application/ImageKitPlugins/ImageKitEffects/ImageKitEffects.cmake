@@ -8,8 +8,10 @@ AddTarget(NAME ImageKitEffects
     UI_FILES
         ${SOURCE_DIR}/*.ui
         ${SOURCE_DIR}/UI/*.ui
+		${SOURCE_DIR}/UI/CustomElements/*.ui
     SUBDIRS
         UI/
+		UI/CustomElements/
     DEPS
         ImageKitPluginsFactory
     QT_USE
